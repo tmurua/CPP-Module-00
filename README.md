@@ -1,6 +1,19 @@
 # CPP-Module-00
 
-## Lessons Learned
+## ex:00
+1. Check number of args. If there are no args print:
+```
+* LOUD AND UNBEARABLE FEEDBACK NOISE *
+```
+Then print a newline and exit.
+
+2. Iterate over each argument.
+   2.1. For each argument, iterate over each character.
+   2.2. Convert each lowercase character to an uppercase character.
+   2.3. Every other character there is not a lowercase must be printer as is.
+   2.4. Print a newline and exit.
+
+### Lessons Learned
 
 1. **Objects in C++**:
    - `std::cout` is an object (not a function) representing the standard output stream.
