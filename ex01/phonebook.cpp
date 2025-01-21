@@ -6,35 +6,27 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:08:45 by tmurua            #+#    #+#             */
-/*   Updated: 2025/01/21 10:51:48 by tmurua           ###   ########.fr       */
+/*   Updated: 2025/01/21 12:30:00 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>	// std::cout, std::cin
-#include <string>	// std::string
+#include "PhoneBook.hpp"
 
-/*	the Contact class holds personal info
-	and provides set/get methods to access it.
-*/
-class Contact
+int	main(void)
 {
-private:
-	std::string firstName;
-	std::string lastName;
-	std::string nickname;
-	std::string phoneNumber;
-	std::string darkestSecret;
+	PhoneBook	phonebook;
 
-public:
-	// Setter methods allow controlled access to private member variables
-};
+	std::string command;
+	while (true)
+	{
+		std::cout << "Enter a command (ADD, SEARCH, EXIT): ";
+		std::getline(std::cin, command);
 
-class PhoneBook
-{
-
-};
-
-int main()
-{
-
+		if (command == "ADD")
+			phonebook.addContact();
+		// else if (command == "SEARCH")
+		// 	phonebook.displayAll();
+		else if (command == "EXIT" || std::cin.eof())
+			break ;
+	}
 }
