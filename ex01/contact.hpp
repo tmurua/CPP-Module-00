@@ -6,16 +6,14 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 10:55:47 by tmurua            #+#    #+#             */
-/*   Updated: 2025/01/21 12:12:15 by tmurua           ###   ########.fr       */
+/*   Updated: 2025/01/22 13:17:59 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream> // std::cout, std::cin
 #include <string>   // std::string
 
-/*	the Contact class holds personal info
-	and provides set/get methods to access it.
-*/
+/* the Contact class holds personal info and set/get methods to access it */
 class Contact
 {
 private:
@@ -26,24 +24,24 @@ private:
 	std::string darkestSecret;
 
 public:
-	// "set" methods allow controlled access to private member variables
-	void setFirstName(std::string &fname)
+	// "set" methods allow access to private member variables
+	void setFirstName(std::string fname)
 	{
 		firstName = fname;
 	}
-	void setLastName(std::string &lname)
+	void setLastName(std::string lname)
 	{
 		lastName = lname;
 	}
-	void setNickname(std::string &nname)
+	void setNickname(std::string nname)
 	{
 		nickname = nname;
 	}
-	void setPhoneNumber(std::string &pnumber)
+	void setPhoneNumber(std::string pnumber)
 	{
 		phoneNumber = pnumber;
 	}
-	void setDarkestSecret(std::string &secret)
+	void setDarkestSecret(std::string secret)
 	{
 		darkestSecret = secret;
 	}

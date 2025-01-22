@@ -35,18 +35,17 @@ Then print a newline and exit.
 ---
 ## ex:01
 ### Plan
-1. **Create two Classes**
+1. **Create two Classes in two different *.hpp files**
    - **Contact**
-     - Each contact have the following fields:
+     - Create the following **private** fields (encapsulation) for each contact:
        - `firstName`, `lastName`, `nickname`, `phoneNumber`, `darkestSecret`
-     - All these fields must be **private** (encapsulation).
-     - Public **set** methods to fill in data.
-     - Public **get** methods (or a display method) to retrieve data.
+     - Create **public "set" methods** to fill in data with the **"ADD"** command that will be introduced later.
+     - Create **public "get" methods** (**"display" methods**) to display the data with the **"SEARCH"** command that will be introduced later.
 
    - **PhoneBook**
-     - Has a **fixed array** of 8 `Contact` objects (no dynamic allocation).
-     - Keeps track of the **next index** to store a new contact.
-       - If we exceed 8, overwrite the **oldest** contact in a circular fashion.
+     - Has a **private fixed array** `contacts[8]` of 8 `Contact`.
+     - Keeps track of the **current index** to store a new contact.
+       - If we exceed 8 contacts, overwrite the **oldest** contact.
      - Public methods:
        - `addContact()`: prompts user for data, fills a `Contact`.
        - `searchContacts()`: displays the list of contacts with formatted output (columns).
