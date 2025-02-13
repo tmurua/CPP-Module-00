@@ -27,13 +27,9 @@ Then print a newline and exit.
    - The `std` namespace groups standard library features like `std::cout` and `std::toupper`.
    - Use `std::` to access these features unless brought into scope explicitly.
 
-4. **Introduction to Classes**:
-   - Although not explicitly used in this exercise, **classes** are blueprints for creating objects.
-   - Objects like `std::cout` are instances of such classes.
-
-5. **C++ Syntax Differences**:
+4. **C++ Syntax Differences**:
    - Output uses `std::cout <<` instead of `printf` in C.
    - The `std::endl` manipulator adds a newline and flushes the stream.
 
-6. **Memory Management**:
+5. **Memory Management**:
    - Unlike in C, `std::cout` abstracts details like buffer flushing and memory handling.
