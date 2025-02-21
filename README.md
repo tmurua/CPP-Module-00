@@ -47,11 +47,11 @@ Then print a newline and exit.
 
    - **PhoneBook**
      - Has a **private fixed array** contacts[8] of 8 Contact.
-     - Keeps track of the **current index** to store a new contact.
+     - Keeps track of the **current contact position** to store a new contact.
        - If we exceed 8 contacts, overwrite the **oldest** contact.
      - Public methods:
-       - addContact(): prompts user for data, fills a Contact.
-       - searchContacts(): displays the list of contacts with formatted output (columns).
+       - add_contact(): prompts user for data, fills a Contact.
+       - search_contacts(): displays the list of contacts with formatted output (columns).
        - displayContact(index): prints the full details of one contact.
 
 2. **Handling commands**

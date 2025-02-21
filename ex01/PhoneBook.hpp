@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 16:07:42 by tmurua            #+#    #+#             */
-/*   Updated: 2025/02/21 18:58:40 by tmurua           ###   ########.fr       */
+/*   Updated: 2025/02/21 19:34:20 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define PHONEBOOK_HPP
 
 #include "Contact.hpp"
+#include <iomanip> // for std::setw
 
 class PhoneBook
 {
@@ -77,14 +78,14 @@ public:
 		int	index;
 
 		std::cout << "     Index|First Name| Last Name|  Nickname| Phone Num\n";
-		// Use loop instead of hardcoding. i from 0 to 7.
 		index = 1;
-		while (index >= 1 && index <= 8)
+		while (index <= 8)
 		{
-			std::cout << "         " << index << "|" << all_contacts[index - 1].firstName << "|";
-			std::cout << all_contacts[index - 1].lastName << "|";
-			std::cout << all_contacts[index - 1].nickname << "|";
-			std::cout << all_contacts[index - 1].phoneNumber << "\n";
+			std::cout << std::setw(10) << index << "|";
+			std::cout << std::setw(10) << all_contacts[index - 1].firstName << "|";
+			std::cout << std::setw(10) << all_contacts[index - 1].lastName << "|";
+			std::cout << std::setw(10) << all_contacts[index - 1].nickname << "|";
+			std::cout << std::setw(10) << all_contacts[index - 1].phoneNumber << "\n";
 			index++;
 		}
 	}
