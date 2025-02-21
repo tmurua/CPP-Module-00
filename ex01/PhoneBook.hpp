@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 16:07:42 by tmurua            #+#    #+#             */
-/*   Updated: 2025/02/20 20:08:36 by tmurua           ###   ########.fr       */
+/*   Updated: 2025/02/21 18:58:40 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,39 @@ public:
 				break;
 			std::cout << "Error: Field cannot be empty. \nPlease enter a value: ";
 		}
+	}
+
+	void	search_contacts()
+	{
+		display_all_contacts();
+		display_index();
+	}
+
+	void	display_all_contacts()
+	{
+		int	index;
+
+		std::cout << "     Index|First Name| Last Name|  Nickname| Phone Num\n";
+		// Use loop instead of hardcoding. i from 0 to 7.
+		index = 1;
+		while (index >= 1 && index <= 8)
+		{
+			std::cout << "         " << index << "|" << all_contacts[index - 1].firstName << "|";
+			std::cout << all_contacts[index - 1].lastName << "|";
+			std::cout << all_contacts[index - 1].nickname << "|";
+			std::cout << all_contacts[index - 1].phoneNumber << "\n";
+			index++;
+		}
+	}
+
+	void	display_index()
+	{
+		int	index;
+
+		std::cout << "Enter a contact's Index to see more details on them:\n";
+		std::cin >> index;
+		if (index >= 1 && index <= 8)
+			all_contacts[index - 1].display_data();
 	}
 };
 

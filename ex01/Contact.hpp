@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:59:12 by tmurua            #+#    #+#             */
-/*   Updated: 2025/02/20 19:43:06 by tmurua           ###   ########.fr       */
+/*   Updated: 2025/02/20 20:55:33 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,13 @@
 
 class Contact
 {
-private:
+public:
 	std::string	firstName;
 	std::string	lastName;
 	std::string	nickname;
 	std::string	phoneNumber;
 	std::string	darkestSecret;
 
-public:
 	// ask for user input to set data fields
 	void	set_data(std::string fname, std::string lname,
 		std::string nname, std::string pnumber, std::string dsecret)
