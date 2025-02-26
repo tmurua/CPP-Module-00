@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 23:01:38 by tmurua            #+#    #+#             */
-/*   Updated: 2025/02/26 21:23:57 by tmurua           ###   ########.fr       */
+/*   Updated: 2025/02/26 21:35:33 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,8 @@ int	Account::_totalNbWithdrawals = 0;
 // define constructor member function to initialize account
 Account::Account(int initial_deposit)
 {
-	// TODO: initialize account with initial_deposit,
-	// update _amount, _nbAccounts, _totalAmount, etc
 	_amount = initial_deposit;
-	_accountIndex = _nbAccounts; // for example
+	_accountIndex = _nbAccounts;
 	_nbAccounts++;
 	_totalAmount += initial_deposit;
 	// log the creation of the account
@@ -38,7 +36,10 @@ Account::Account(int initial_deposit)
 // define destructor to close account
 Account::~Account()
 {
-	// TODO: log the closure of the account
+	_displayTimestamp();
+	std::cout << " index:" << _accountIndex << ";";
+	std::cout << "amount:" << _amount << ";";
+	std::cout << "closed\n";
 }
 
 
@@ -81,6 +82,7 @@ void Account::makeDeposit(int deposit)
 	_amount = _amount + deposit;
 	_nbDeposits = 1;
 	_totalNbDeposits++;
+	_totalAmount = _totalAmount + deposit;
 	_displayTimestamp();
 	std::cout << " index:" <<  _accountIndex << ";";
 	std::cout << "p_amount:" << _previousAmount <<";";
@@ -102,6 +104,7 @@ bool Account::makeWithdrawal(int withdrawal)
 		_amount = _amount - withdrawal;
 		_nbWithdrawals = 1;
 		_totalNbWithdrawals++;
+		_totalAmount = _totalAmount - withdrawal;
 		std::cout << withdrawal << ";";
 		std::cout << "amount:" << _amount << ";";
 		std::cout << "nb_withdrawals:" << _nbWithdrawals << "\n";
