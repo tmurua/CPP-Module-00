@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 23:01:38 by tmurua            #+#    #+#             */
-/*   Updated: 2025/02/26 20:56:59 by tmurua           ###   ########.fr       */
+/*   Updated: 2025/02/26 21:23:57 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ Account::Account(int initial_deposit)
 	_nbAccounts++;
 	_totalAmount += initial_deposit;
 	// log the creation of the account
-	displayStatus();
+	_displayTimestamp();
+	std::cout << " index:" << _accountIndex << ";";
+	std::cout << "amount:" << _amount << ";";
+	std::cout << "created\n";
 }
 // define destructor to close account
 Account::~Account()
@@ -69,8 +72,7 @@ void	Account::displayAccountsInfos()
 	std::cout << "withdrawals:" << _totalNbWithdrawals << "\n";
 }
 
-// process a deposit into this account
-// 'deposit' represents amount to deposit
+// process a deposit into specific account
 void Account::makeDeposit(int deposit)
 {
 	int	_previousAmount;
@@ -87,22 +89,29 @@ void Account::makeDeposit(int deposit)
 	std::cout << "nb_deposits:" << _nbDeposits << "\n";
 }
 
-// process a withdrawal from this account
+// process a withdrawal from specific account
 // returns true if withdrawal was successful; false if insufficient funds
 bool Account::makeWithdrawal(int withdrawal)
 {
-	// TODO: Check if _amount is sufficient for the withdrawal
-	// If not, print a log message indicating that the withdrawal was refused and return false.
-	// If sufficient, subtract the withdrawal from _amount
-	// TODO: Increment _nbWithdrawals for this account and update the global totals (_totalAmount and _totalNbWithdrawals)
-	// TODO: Print a log message with details: previous amount, withdrawal, new amount, and the number of withdrawals
-	// current condition is just a placeholder
-	if (withdrawal++) // placeholder; replace with proper withdrawal logic
+	_displayTimestamp();
+	std::cout << " index:" << _accountIndex << ";";
+	std::cout << "p_amount:" << _amount << ";";
+	std::cout << "withdrawal:";
+	if (withdrawal <= _amount)
 	{
+		_amount = _amount - withdrawal;
+		_nbWithdrawals = 1;
+		_totalNbWithdrawals++;
+		std::cout << withdrawal << ";";
+		std::cout << "amount:" << _amount << ";";
+		std::cout << "nb_withdrawals:" << _nbWithdrawals << "\n";
 		return true;
 	}
 	else
+	{
+		std::cout << "refused\n";
 		return false;
+	}
 }
 
 // return current amount in account
@@ -116,10 +125,9 @@ void Account::displayStatus() const
 {
 	_displayTimestamp();
 	std::cout << " index:" << _accountIndex << ";";
-	std::cout << "amount:" << _amount << "\n";
-	// TODO:
-	// format output to match the expected log format:
-	// "[timestamp] index:0;amount:42;deposits:0;withdrawals:0"
+	std::cout << "amount:" << _amount << ";";
+	std::cout << "deposits:" << _nbDeposits << ";";
+	std::cout << "withdrawals:" << _nbWithdrawals << "\n";
 }
 
 // display current timestamp in required format
