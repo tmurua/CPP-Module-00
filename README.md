@@ -102,3 +102,53 @@ Then print a newline and exit.
 - Implement the classes (`Contact.hpp/cpp` and `PhoneBook.hpp/cpp`).
 - Write `main.cpp` to handle user commands (ADD, SEARCH, EXIT).
 - Create a Makefile to build the executable (e.g., `phonebook`).
+
+## ex:02 - The Job Of Your Dreams
+
+### Plan
+1. **Recreate Account.cpp output:**
+   - **1st Output (CREATE_ACCOUNTS)**:
+   - [yyyymmdd_091532] index:**index**;amount:**index_amount**;created <loop it for the all 8 indexes>
+
+   - **2nd Output (TOTAL_SUMMARY)**
+   - [yyyymmdd_091532] accounts:**nbr_of_accounts**;total:**total_amount**;deposits:**nbr_of_deposits**;withdrawals:**nbr_of_withdrawals** <only showed once>
+
+   - **3rd Output (ACCOUNTS_SUMMARY)**
+   - [yyyymmdd_091532] index:**index**;amount:**index_amount**;deposits:**nbr_of_deposits**;withdrawals:**nbr_of_withdrawals** <loop it for the all 8 indexes>
+
+   - **4th Output (DEPOSITS)**
+   - [yyyymmdd_091532] index:**index**;p_amount:**index_amount**;deposit:**deposit_amount**;amount:**index_amount = index_amount + deposit_amount**nb_deposits:**nb_of_deposits** <loop it for the all 8 indexes>
+
+   - **5th Output (TOTAL_SUMMARY)**
+   - SAME AS 2ND OUTPUT (TOTAL_SUMMARY) <only showed once>
+-
+   - **6th Output (ACCOUNTS_SUMMARY)**
+   - SAME AS 3RD OUTPUT (ACCOUNTS_SUMMARY)  <loop it for the all 8 indexes>
+
+   - **7th Output (WITHDRAWALS)**
+   - [yyyymmdd_091532] index:**index**;p_amount:**index_amount**;deposit:**deposit_amount**;nb_deposits:**nb_of_deposits** <loop it for the all 8 indexes>
+
+   - **8th Output (TOTAL_SUMMARY)**
+   - SAME AS 2ND OUTPUT (TOTAL_SUMMARY) <only showed once>
+-
+   - **9th Output (ACCOUNTS_SUMMARY)**
+   - SAME AS 3RD OUTPUT (ACCOUNTS_SUMMARY)  <loop it for the all 8 indexes>
+
+   - **10th Output (CLOSE_ACCOUNTS)**
+   - [yyyymmdd_091532] index:**index**;amount:**index_amount**;closed <loop it for the all 8 indexes>
+
+2. **Understand where numbers come from**
+   - From tests.cpp:
+     - **amounts[]	= { 42, 54, 957, 432, 1234, 0, 754, 16576 };**
+       - 1st output: **index** = nbr of current element in the array **amounts[]** = { 0, 1, 2, 3, 4 , 5, 6 , 7 };
+       - 1st output: **index_amount** = each element of the array = { 42, 54, 957, 432, 1234, 0, 754, 16576 };
+       - 2nd output: **nbr_of_accounts** = nbr of elements in the array **amounts[]** = 8;
+       - 2nd output: **total_amount** = sum of all elements of the array = 42 + 54 + 957 + 432 + 1234 + 0 + 754 + 16576;
+       - 2nd output: **nbr_of_deposits**
+       - 2nd output: **nbr_of_withdrawals**
+       - 3rd output:
+
+       - **d[]			= { 5, 765, 564, 2, 87, 23, 9, 20 };**
+       - **w[]			= { 321, 34, 657, 4, 76, 275, 657, 7654 };**
+
+
