@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 23:01:38 by tmurua            #+#    #+#             */
-/*   Updated: 2025/02/26 18:50:19 by tmurua           ###   ########.fr       */
+/*   Updated: 2025/02/26 20:56:59 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,16 +70,21 @@ void	Account::displayAccountsInfos()
 }
 
 // process a deposit into this account
-// the parameter 'deposit' represents the amount to deposit
+// 'deposit' represents amount to deposit
 void Account::makeDeposit(int deposit)
 {
-	// TODO: Before updating, store the previous amount (_amount) in a temporary variable
-	// TODO: Call _displayTimestamp() to print the current timestamp
-	// TODO: Print a log message with details: previous amount, deposit, new amount, and the number of deposits
-	// TODO: Add the deposit to _amount
-	// TODO: Increment _nbDeposits for this account and update the global totals (_totalAmount and _totalNbDeposits)
-	// the current code is just a placeholder
-	deposit++; // placeholder; replace with proper deposit logic
+	int	_previousAmount;
+
+	_previousAmount = _amount;
+	_amount = _amount + deposit;
+	_nbDeposits = 1;
+	_totalNbDeposits++;
+	_displayTimestamp();
+	std::cout << " index:" <<  _accountIndex << ";";
+	std::cout << "p_amount:" << _previousAmount <<";";
+	std::cout << "deposit:" << deposit << ";";
+	std::cout << "amount:" << _amount << ";";
+	std::cout << "nb_deposits:" << _nbDeposits << "\n";
 }
 
 // process a withdrawal from this account
@@ -109,6 +114,9 @@ int Account::checkAmount() const
 // display status of this account
 void Account::displayStatus() const
 {
+	_displayTimestamp();
+	std::cout << " index:" << _accountIndex << ";";
+	std::cout << "amount:" << _amount << "\n";
 	// TODO:
 	// format output to match the expected log format:
 	// "[timestamp] index:0;amount:42;deposits:0;withdrawals:0"
